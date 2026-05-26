@@ -1,11 +1,15 @@
-const allCourses = [
-    { title: "Google Data Analytics", desc: "Professional Certificate", cat: "Google" },
-    { title: "Google Cybersecurity", desc: "Security Fundamentals", cat: "Google" },
-    { title: "Azure Fundamentals", desc: "Microsoft Azure (AZ-900)", cat: "Azure" },
-    { title: "Azure Data Engineer", desc: "Big Data & Storage", cat: "Azure" },
-    { title: "Google Digital UX", desc: "Design Foundation", cat: "Google" },
-    { title: "Microsoft Power BI", desc: "Data Visualization", cat: "Azure" }
-];
+const categories = ["Google", "Azure", "AWS", "DataScience", "CyberSecurity"];
+const allCourses = [];
+
+// 500+ courses ka logic (Categories ke hisaab se)
+for (let i = 1; i <= 500; i++) {
+    let cat = categories[i % categories.length];
+    allCourses.push({
+        title: cat + " Track " + i,
+        desc: "Professional " + cat + " Certification Program " + i,
+        cat: cat
+    });
+}
 
 function renderCourses(filter = 'All') {
     const grid = document.getElementById('courseGrid');
@@ -13,12 +17,12 @@ function renderCourses(filter = 'All') {
     
     grid.innerHTML = filtered.map(c => `
         <div class="card">
-            <div class="card-header ${c.cat === 'Google' ? 'bg-google' : 'bg-azure'}">
+            <div class="card-header ${c.cat === 'Google' ? 'bg-google' : c.cat === 'Azure' ? 'bg-azure' : 'bg-aws'}">
                 <h3>${c.title}</h3>
             </div>
             <div class="card-content">
                 <p>${c.desc}</p>
-                <button onclick="alert('Enrolled in ${c.title}')">Start Learning</button>
+                <button onclick="alert('Enrolling in ${c.title}')">Start Learning</button>
             </div>
         </div>
     `).join('');
