@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Login - SmartLMS</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="auth-container">
+        <h2>Login</h2>
+        <input type="text" id="loginName" placeholder="Enter name"><br>
+        <button onclick="checkLogin()">Login</button>
+    </div>
+
+    <script>
+        function checkLogin() {
+            const name = document.getElementById('loginName').value;
+            const registered = localStorage.getItem('registeredUser');
+            
+            if(registered && name === registered) {
+                alert("Login Successful!");
+                window.location.href = "index.html";
+            } else {
+                alert("User not found! Please register first.");
+            }
+        }
+    </script>
+</body>
+</html>
