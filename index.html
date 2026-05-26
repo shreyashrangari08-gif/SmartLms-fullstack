@@ -7,7 +7,6 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-
     <header>
         <div class="logo">SmartLMS</div>
         <nav>
@@ -20,7 +19,7 @@
     <main>
         <section class="hero">
             <h1>Infosys & Global Career Library</h1>
-            <p>Explore an endless catalog of certification pathways.</p>
+            <p>Explore an endless catalog of 500+ certification pathways.</p>
             <div class="search-box">
                 <input type="text" id="searchInput" onkeyup="filterCourses()" placeholder="Search 500+ courses...">
             </div>
@@ -28,16 +27,15 @@
 
         <div class="filters">
             <button onclick="renderCourses('All')">All Collections</button>
-            <button onclick="renderCourses('Google')">Google Tracks</button>
-            <button onclick="renderCourses('Azure')">Microsoft Systems</button>
+            <button onclick="renderCourses('Google')">Google</button>
+            <button onclick="renderCourses('Azure')">Azure</button>
+            <button onclick="renderCourses('AWS')">AWS</button>
         </div>
 
         <section class="catalog">
-            <div class="course-grid" id="courseGrid">
-                </div>
+            <div class="course-grid" id="courseGrid"></div>
         </section>
     </main>
-
     <script src="script.js"></script>
 </body>
 </html>
