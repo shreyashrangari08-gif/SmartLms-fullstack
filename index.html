@@ -1,45 +1,12 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SmartLMS | Career Pathways</title>
-    <link rel="stylesheet" href="style.css">
-</head>
-<body>
-    <header>
-        <div class="logo">🚀 SmartLMS Dashboard</div>
-        <nav>
-            <a href="index.html">Home</a>
-            <a href="#">Login</a>
-            <a href="#">Register</a>
-        </nav>
-    </header>
-
-    <main>
-        <section class="hero">
-            <h1>Infosys & Global Career Library</h1>
-            <p>Curated pathways from top tech leaders</p>
-            <div class="search-box">
-                <input type="text" id="searchInput" onkeyup="filterCourses()" placeholder="Search from 500+ modules...">
-                <button class="search-btn">Search</button>
-            </div>
-        </section>
-
-        <div class="filters">
-            <button class="tab-btn active" onclick="filterPlatform('All')">All Collections (200+)</button>
-            <button class="tab-btn" onclick="filterPlatform('Google')">Google</button>
-            <button class="tab-btn" onclick="filterPlatform('Microsoft')">Microsoft</button>
-            <button class="tab-btn" onclick="filterPlatform('AWS')">AWS</button>
-            <button class="tab-btn" onclick="filterPlatform('Infosys')">Infosys</button>
-            <button class="tab-btn" onclick="filterPlatform('EduSkills')">EduSkills</button>
+<div id="courseModal" class="modal">
+    <div class="modal-content">
+        <span class="close" onclick="closeModal()">×</span>
+        <div id="playerArea"></div>
+        <div id="quizArea" style="display:none;">
+            <h3>Final Assessment</h3>
+            <p>Complete this quiz to get your certificate.</p>
+            <button onclick="finishAssessment()">Submit & Get Certificate</button>
         </div>
-
-        <section class="catalog">
-            <h2>Program Catalog</h2>
-            <div class="course-grid" id="courseGrid"></div>
-        </section>
-    </main>
-    <script src="script.js"></script>
-</body>
-</html>
+        <button id="assessmentBtn" onclick="startAssessment()">Start Assessment</button>
+    </div>
+</div>
