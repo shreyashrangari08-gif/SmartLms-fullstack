@@ -1,56 +1,47 @@
-const allCourses = [];
-const categories = [
-    { name: "Google", video: "n_w4nL2HSqA" }, // Google Analytics
-    { name: "Coursera", video: "jNQXAC9IVRw" }, // Data Science
-    { name: "Microsoft", video: "d2J37ac9C80" }, // Azure
-    { name: "AWS", video: "Q-pY7bI4J8E" },      // AWS Cloud
-    { name: "EduSkills", video: "k2r55y67z89" }   // Skill Dev
+const courseData = [
+    { cat: "Google", list: ["Google Data Analytics", "Google Cybersecurity", "Google UX Design", "Google Digital Marketing & E-commerce", "Google IT Support", "Google Project Management", "Google Advanced Data Analytics", "Google Business Intelligence", "Google AI Essentials", "Google Prompting Essentials"] },
+    { cat: "Coursera", list: ["Machine Learning Specialization", "Python for Everybody", "Google Data Analytics Professional Certificate", "IBM Data Science Professional Certificate", "Deep Learning Specialization", "Meta Front-End Developer Professional Certificate", "Introduction to Artificial Intelligence (AI)", "Financial Markets", "English for Career Development", "Cloud Computing Basics"] },
+    { cat: "Microsoft", list: ["Azure Fundamentals (AZ-900)", "AI Fundamentals (AI-900)", "Power BI Data Analyst", "Microsoft Security Fundamentals", "Azure AI Engineer Associate", "Microsoft 365 Fundamentals", "Azure Administrator Associate", "GitHub Foundations", "NET Full Stack Development", "Power Platform Fundamentals"] },
+    { cat: "AWS", list: ["AWS Cloud Practitioner Essentials", "AWS Solutions Architect Associate", "AWS Machine Learning Foundations", "Introduction to Generative AI", "AWS Security Fundamentals", "AWS Data Analytics Fundamentals", "Developing on AWS", "AWS DevOps Engineer", "AWS Networking Basics", "Serverless Development with AWS Lambda"] },
+    { cat: "Eduskill", list: ["AI-ML Virtual Internship", "Cybersecurity Virtual Internship", "Cloud Computing Internship", "Data Analytics Internship", "Salesforce Developer Virtual Internship", "Android Developer Internship", "AWS Cloud Virtual Internship", "Palo Alto Cybersecurity Internship", "Robotic Process Automation Internship", "Full Stack Web Development Internship"] }
 ];
 
-// 5 categories * 10 courses each = 50 courses
-categories.forEach(cat => {
-    for (let i = 1; i <= 10; i++) {
-        allCourses.push({
-            id: allCourses.length + 1,
-            title: `${cat.name} ${cat.name === 'Google' ? 'Data' : 'Expert'} Course ${i}`,
-            platform: cat.name,
-            videoId: cat.video // Category ka exact video
-        });
-    }
-});
+const allCourses = [];
+courseData.forEach(c => c.list.forEach((name, i) => allCourses.push({ id: allCourses.length + 1, title: name, platform: c.cat, video: "dQw4w9WgXcQ" })));
 
 function render() {
     const grid = document.getElementById("courseGrid");
-    grid.innerHTML = allCourses.map(c => {
-        const isEnrolled = localStorage.getItem('enrolled_' + c.id);
-        return `
-            <div class="card">
-                <h3>${c.title}</h3>
-                <p>Platform: ${c.platform}</p>
-                ${!isEnrolled ? 
-                    `<button class="enroll-btn" onclick="enroll(${c.id})">Enroll Now</button>` : 
-                    `<button class="learn-btn" onclick="openVideo('${c.videoId}')">Continue Learning</button>`
-                }
-            </div>
-        `;
-    }).join('');
+    grid.innerHTML = allCourses.map(c => `
+        <div class="card">
+            <h3>${c.title}</h3>
+            <p><strong>Platform:</strong> ${c.platform}</p>
+            ${localStorage.getItem('enrolled_'+c.id) ? 
+                `<button class="learn-btn" onclick="openModule(${c.id})">Continue Learning</button>` : 
+                `<button class="enroll-btn" onclick="enroll(${c.id})">Enroll Now</button>`}
+        </div>
+    `).join('');
 }
 
-function enroll(id) {
-    localStorage.setItem('enrolled_' + id, 'true');
-    alert("Successfully Enrolled!");
-    render();
-}
+function enroll(id) { localStorage.setItem('enrolled_'+id, 'true'); render(); alert("Successfully Enrolled!"); }
 
-function openVideo(vId) {
-    // Ye design ko stable rakhega
+function openModule(id) {
     const modal = document.createElement('div');
+    modal.className = "modal";
     modal.innerHTML = `
-        <div style="position:fixed; top:0; left:0; width:100%; height:100%; background:rgba(0,0,0,0.9); z-index:9999;">
-            <button onclick="this.parentElement.parentElement.remove()" style="margin:20px; padding:10px;">Close</button>
-            <iframe width="100%" height="80%" src="https://www.youtube.com/embed/${vId}"></iframe>
+        <div class="modal-content">
+            <button onclick="this.parentElement.parentElement.remove()">Close</button>
+            <h2>Course Content</h2>
+            <iframe width="100%" height="300" src="https://www.youtube.com/embed/dQw4w9WgXcQ"></iframe>
+            <div class="reading"><h3>Reading Material</h3><p>Detailed notes for this course...</p></div>
+            <button onclick="startQuiz(${id})">Start Assessment</button>
         </div>
     `;
     document.body.appendChild(modal);
 }
+
+function startQuiz(id) {
+    alert("Assessment: What is the main goal of this course?");
+    if(confirm("Submit Assessment?")) { alert("Passed! Certificate Generated for Course " + id); }
+}
+
 render();
