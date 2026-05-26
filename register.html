@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Register - SmartLMS</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="auth-container">
+        <h2>Register Here</h2>
+        <input type="text" id="username" placeholder="Enter your name"><br>
+        <input type="password" id="password" placeholder="Create password"><br>
+        <button onclick="registerUser()">Register</button>
+    </div>
+
+    <script>
+        function registerUser() {
+            const name = document.getElementById('username').value;
+            const pass = document.getElementById('password').value;
+            if(name && pass) {
+                localStorage.setItem('registeredUser', name);
+                alert("Registration Successful! Now you can Login.");
+                window.location.href = "login.html";
+            } else {
+                alert("Please fill all fields!");
+            }
+        }
+    </script>
+</body>
+</html>
