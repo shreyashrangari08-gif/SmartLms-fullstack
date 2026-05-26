@@ -1,16 +1,6 @@
 const allCourses = [];
-const platforms = ["Google", "Microsoft", "AWS", "Infosys", "EduSkills", "Coursera"];
-const subjects = ["Data Analytics", "Cloud Computing", "Cybersecurity", "Python Basics", "UX Design", "Machine Learning"];
-
-// 200 courses ka data phir se generate ho gaya
 for (let i = 1; i <= 200; i++) {
-    allCourses.push({
-        id: i,
-        title: subjects[i % subjects.length] + " " + i,
-        platform: platforms[i % platforms.length],
-        desc: "Professional Certification Pathway " + i,
-        videoId: "dQw4w9WgXcQ" 
-    });
+    allCourses.push({ id: i, title: "Course " + i, platform: "Google", videoId: "dQw4w9WgXcQ" });
 }
 
 function render() {
@@ -21,10 +11,9 @@ function render() {
             <div class="card">
                 <h3>${c.title}</h3>
                 <p>Platform: ${c.platform}</p>
-                <p>${c.desc}</p>
                 ${!isEnrolled ? 
                     `<button class="enroll-btn" onclick="enroll(${c.id})">Enroll Now</button>` : 
-                    `<button class="learn-btn" onclick="openCourse(${c.id}, '${c.videoId}')">Continue Learning</button>`
+                    `<button class="learn-btn" onclick="openVideo('${c.videoId}')">Continue Learning</button>`
                 }
             </div>
         `;
@@ -33,16 +22,15 @@ function render() {
 
 function enroll(id) {
     localStorage.setItem('enrolled_' + id, 'true');
-    alert("We have successfully enrolled you in this course!");
     render();
 }
 
-function openCourse(id, videoId) {
-    const modal = document.getElementById("courseModal");
-    modal.style.display = "block";
-    document.getElementById("playerArea").innerHTML = `<iframe width="100%" height="400" src="https://www.youtube.com/embed/${videoId}"></iframe>`;
+function openVideo(vId) {
+    // Ye video ko current page par hi dikhayega bina design bigade
+    document.body.innerHTML += `<div id="vPlayer" style="position:fixed; top:0; left:0; width:100%; height:100%; background:black;">
+        <button onclick="document.getElementById('vPlayer').remove()" style="color:white; z-index:99;">Close</button>
+        <iframe width="100%" height="90%" src="https://www.youtube.com/embed/${vId}"></iframe>
+    </div>`;
 }
-
-function closeModal() { document.getElementById("courseModal").style.display = "none"; }
 
 render();
