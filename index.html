@@ -2,22 +2,35 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>SmartLMS | Professional Course Library</title>
+    <title>SmartLMS | Platform Dashboard</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
     <header>
-        <div class="logo">SmartLMS</div>
-        <nav><a href="#">Courses</a> <a href="#">Login</a></nav>
+        <div class="logo">SmartLMS Dashboard</div>
+        <nav><a href="index.html">Home</a></nav>
     </header>
 
     <main>
         <section class="hero">
-            <h1>Infosys & Global Career Library</h1>
-            <input type="text" id="searchInput" onkeyup="filterCourses()" placeholder="Search courses...">
+            <h1>Global Learning Pathways</h1>
+            <div class="search-box">
+                <input type="text" id="searchInput" onkeyup="searchCourses()" placeholder="Search from 200+ modules...">
+            </div>
         </section>
 
-        <div id="courses" class="course-grid"></div>
+        <div class="tabs-container">
+            <button class="tab-btn active" onclick="filterPlatform('All')">All Courses</button>
+            <button class="tab-btn" onclick="filterPlatform('Infosys Springboard')">Infosys</button>
+            <button class="tab-btn" onclick="filterPlatform('Coursera')">Coursera</button>
+            <button class="tab-btn" onclick="filterPlatform('EduSkills')">EduSkills</button>
+            <button class="tab-btn" onclick="filterPlatform('Google')">Google</button>
+            <button class="tab-btn" onclick="filterPlatform('Microsoft')">Microsoft</button>
+        </div>
+
+        <section class="catalog">
+            <div class="course-grid" id="courseGrid"></div>
+        </section>
     </main>
 
     <script src="script.js"></script>
