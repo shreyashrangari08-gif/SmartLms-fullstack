@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SmartLMS - Online Learning System</title>
+    <title>SmartLMS - Global Career Library</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -12,7 +12,6 @@
         <div class="logo">SmartLMS</div>
         <nav>
             <a href="index.html">Home</a>
-            <a href="courses.html">Courses</a>
             <a href="login.html">Login</a>
             <a href="register.html">Register</a>
         </nav>
@@ -21,35 +20,15 @@
     <main>
         <section class="hero">
             <h1>Infosys & Global Career Library</h1>
-            <p>Explore an endless catalog of certification pathways.</p>
+            <p>Explore an endless catalog of 500+ certification pathways.</p>
             <div class="search-box">
-                <input type="text" placeholder="Search 999+ modules...">
-                <button>Search</button>
+                <input type="text" id="searchInput" onkeyup="filterCourses()" placeholder="Search 500+ courses...">
             </div>
         </section>
 
         <section class="catalog">
-            <h2>Featured Programs</h2>
-            <div class="course-grid">
-                <div class="card">
-                    <h3>Google Data</h3>
-                    <p>Google Data Analytics Professional</p>
-                    <button onclick="enroll('Google Data Analytics')">Start Learning</button>
+            <div class="course-grid" id="courseGrid">
                 </div>
-                <div class="card">
-                    <h3>Google Cybersecurity</h3>
-                    <p>Google Cybersecurity Frameworks</p>
-                    <button onclick="enroll('Google Cybersecurity')">Start Learning</button>
-                </div>
-                <div class="card">
-                    <h3>Azure Fundamentals</h3>
-                    <p>Microsoft Azure (AZ-900)</p>
-                    <button onclick="enroll('Azure Fundamentals')">Start Learning</button>
-                </div>
-            </div>
-            <div style="text-align: center; margin-top: 20px;">
-                <a href="courses.html"><button>View All 500+ Courses</button></a>
-            </div>
         </section>
     </main>
 
