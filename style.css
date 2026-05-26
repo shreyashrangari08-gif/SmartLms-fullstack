@@ -1,86 +1,12 @@
-/* style.css - Updated for Dynamic Course Grid */
-body {
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    margin: 0;
-    padding: 0;
-    background-color: #f4f7f6;
-    color: #333;
-}
-
-header {
-    background-color: #003366;
-    color: white;
-    padding: 15px 20px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-}
-
-header nav a {
-    color: white;
-    margin-left: 20px;
-    text-decoration: none;
-    font-weight: bold;
-}
-
-.hero {
-    text-align: center;
-    padding: 40px 20px;
-    background: linear-gradient(135deg, #003366, #0055aa);
-    color: white;
-}
-
-.search-box input {
-    padding: 12px;
-    width: 80%;
-    max-width: 400px;
-    border-radius: 25px;
-    border: none;
-    margin-top: 20px;
-    outline: none;
-}
-
-.catalog {
-    padding: 30px;
-}
-
-.course-grid {
-    display: grid;
-    /* Yeh line grid ko automatically adjust karti hai */
-    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-    gap: 20px;
-}
-
-.card {
-    background: white;
-    padding: 20px;
-    border-radius: 12px;
-    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
-    transition: transform 0.3s ease;
-    text-align: center;
-}
-
-.card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 8px 12px rgba(0,0,0,0.15);
-}
-
-.card h3 {
-    margin-top: 0;
-    color: #003366;
-}
-
-.card button {
-    background-color: #007bff;
-    color: white;
-    border: none;
-    padding: 10px 20px;
-    border-radius: 5px;
-    cursor: pointer;
-    margin-top: 15px;
-    font-weight: bold;
-}
-
-.card button:hover {
-    background-color: #0056b3;
-}
+body { font-family: sans-serif; margin: 0; background-color: #f4f7f6; }
+header { background-color: #003366; color: white; padding: 20px; display: flex; justify-content: space-between; }
+header nav a { color: white; text-decoration: none; margin-left: 20px; font-weight: bold; }
+.hero { text-align: center; padding: 50px; background: #003366; color: white; }
+.filters { text-align: center; padding: 20px; }
+.filters button { padding: 10px 20px; margin: 5px; cursor: pointer; border-radius: 5px; border: none; }
+.course-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 20px; padding: 20px; }
+.card { background: white; border-radius: 15px; box-shadow: 0 4px 10px rgba(0,0,0,0.1); overflow: hidden; }
+.card-header { height: 80px; padding: 15px; color: white; display: flex; align-items: flex-end; }
+.card-content { padding: 15px; }
+.bg-google { background: linear-gradient(135deg, #4285f4, #34a853); }
+.bg-azure { background: linear-gradient(135deg, #0078d4, #00bcf2); }
