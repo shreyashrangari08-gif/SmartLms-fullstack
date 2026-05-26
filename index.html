@@ -1,35 +1,8 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>SmartLMS | Program Catalog</title>
-    <link rel="stylesheet" href="style.css">
-</head>
-<body>
-    <header>
-        <div class="logo">🚀 SmartLMS</div>
-        <nav><a href="#">Courses</a> <a href="#">Login</a> <a href="#">Register</a></nav>
-    </header>
-
-    <main>
-        <section class="hero">
-            <h1>Infosys & Global Career Library</h1>
-            <p>Explore an endless catalog of certification pathways curated directly from world-class tech leaders.</p>
-            <input type="text" id="searchInput" onkeyup="filterCourses()" placeholder="Search across 999+ modules (e.g. Google, AI, Java)...">
-        </section>
-
-        <div class="filters">
-            <button onclick="filterCategory('All')">All Collections (999+)</button>
-            <button onclick="filterCategory('Google')">Google Tracks</button>
-            <button onclick="filterCategory('Microsoft')">Microsoft Systems</button>
-            <button onclick="filterCategory('AWS')">AWS Cloud</button>
-        </div>
-
-        <section class="catalog">
-            <h3>Program Catalog</h3>
-            <div class="course-grid" id="courseGrid"></div>
-        </section>
-    </main>
-    <script src="script.js"></script>
-</body>
-</html>
+<div class="filters">
+    <button onclick="filterPlatform('All')">All Collections (200+)</button>
+    <button onclick="filterPlatform('Google')">Google</button>
+    <button onclick="filterPlatform('Microsoft')">Microsoft</button>
+    <button onclick="filterPlatform('AWS')">AWS</button>
+    <button onclick="filterPlatform('Infosys')">Infosys</button>
+</div>
+<div class="course-grid" id="courseGrid"></div>
