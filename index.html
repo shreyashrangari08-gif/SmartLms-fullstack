@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SmartLMS - Global Career Library</title>
+    <title>SmartLMS - Professional Library</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -20,11 +20,17 @@
     <main>
         <section class="hero">
             <h1>Infosys & Global Career Library</h1>
-            <p>Explore an endless catalog of 500+ certification pathways.</p>
+            <p>Explore an endless catalog of certification pathways.</p>
             <div class="search-box">
                 <input type="text" id="searchInput" onkeyup="filterCourses()" placeholder="Search 500+ courses...">
             </div>
         </section>
+
+        <div class="filters">
+            <button onclick="renderCourses('All')">All Collections</button>
+            <button onclick="renderCourses('Google')">Google Tracks</button>
+            <button onclick="renderCourses('Azure')">Microsoft Systems</button>
+        </div>
 
         <section class="catalog">
             <div class="course-grid" id="courseGrid">
