@@ -1,16 +1,27 @@
-const courses = [
-    { title: "Google Data Analytics", desc: "Google Data Analytics Professional Certificate", cat: "Google", link: "https://www.youtube.com/watch?v=your_video_id" },
-    { title: "Google Cybersecurity", desc: "Google Cybersecurity Frameworks", cat: "Google", link: "https://www.youtube.com/watch?v=your_video_id" },
-    { title: "Azure Fundamentals", desc: "Microsoft Azure (AZ-900)", cat: "Microsoft", link: "https://www.youtube.com/watch?v=your_video_id" },
-    { title: "AWS Solutions", desc: "AWS Cloud Operations", cat: "AWS", link: "https://www.youtube.com/watch?v=your_video_id" }
-];
+// Data: 200+ Courses
+const allCourses = [];
+const platforms = ["Google", "Microsoft", "AWS", "Infosys", "Coursera", "EduSkills"];
+const subjects = ["Data Analytics", "Cloud Computing", "Cybersecurity", "Python Basics", "UX Design", "Machine Learning"];
+
+for (let i = 1; i <= 200; i++) {
+    allCourses.push({
+        id: i,
+        title: subjects[i % subjects.length] + " " + i,
+        platform: platforms[i % platforms.length],
+        desc: "Professional Certification Pathway " + i,
+        link: "https://www.youtube.com" // Yahan apna YouTube link daalein
+    });
+}
 
 function render(data) {
     const grid = document.getElementById("courseGrid");
+    if (!grid) return;
+    
     grid.innerHTML = data.map(c => `
         <div class="card">
             <div class="card-header"><h4>${c.title}</h4></div>
             <div class="card-content">
+                <p><strong>Platform:</strong> ${c.platform}</p>
                 <p>${c.desc}</p>
                 <button onclick="window.open('${c.link}', '_blank')">Start Learning</button>
             </div>
@@ -18,14 +29,10 @@ function render(data) {
     `).join('');
 }
 
-function filterCategory(cat) {
-    if(cat === 'All') render(courses);
-    else render(courses.filter(c => c.cat === cat));
+// Filter function
+function filterPlatform(platform) {
+    if(platform === 'All') render(allCourses);
+    else render(allCourses.filter(c => c.platform === platform));
 }
 
-function filterCourses() {
-    let input = document.getElementById("searchInput").value.toLowerCase();
-    render(courses.filter(c => c.title.toLowerCase().includes(input)));
-}
-
-render(courses);
+render(allCourses);
