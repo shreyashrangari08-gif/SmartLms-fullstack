@@ -1,7 +1,6 @@
 const categories = ["Google", "Azure", "AWS", "DataScience", "CyberSecurity"];
 const allCourses = [];
 
-// 500+ courses ka logic (Categories ke hisaab se)
 for (let i = 1; i <= 500; i++) {
     let cat = categories[i % categories.length];
     allCourses.push({
@@ -22,7 +21,7 @@ function renderCourses(filter = 'All') {
             </div>
             <div class="card-content">
                 <p>${c.desc}</p>
-                <button onclick="alert('Enrolling in ${c.title}')">Start Learning</button>
+                <button onclick="alert('Enrolled in ${c.title}')">Start Learning</button>
             </div>
         </div>
     `).join('');
