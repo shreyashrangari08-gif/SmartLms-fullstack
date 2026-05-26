@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>All Courses - SmartLMS</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <header>
+        <div class="logo">SmartLMS</div>
+        <nav>
+            <a href="index.html">Home</a>
+            <a href="courses.html">All Courses</a>
+            <a href="login.html">Login</a>
+        </nav>
+    </header>
+
+    <main>
+        <section class="catalog">
+            <h2>Our Full Course Library</h2>
+            <input type="text" id="searchInput" onkeyup="filterCourses()" placeholder="Search 500+ courses...">
+            
+            <div class="course-grid" id="courseGrid">
+                </div>
+        </section>
+    </main>
+
+    <script>
+        // Yahan aap apne 500+ courses ki list daloge
+        const courses = [
+            { title: "Google Data Analytics", desc: "Professional Certificate" },
+            { title: "Google Cybersecurity", desc: "Security Fundamentals" },
+            { title: "Azure Fundamentals", desc: "Cloud Computing" },
+            { title: "Python for Data Science", desc: "Programming Basics" },
+            // Isi format mein baki courses add karte jao
+        ];
+
+        function loadCourses() {
+            const grid = document.getElementById('courseGrid');
+            grid.innerHTML = ""; 
+            courses.forEach(course => {
+                grid.innerHTML += `
+                    <div class="card">
+                        <h3>${course.title}</h3>
+                        <p>${course.desc}</p>
+                        <button onclick="enroll('${course.title}')">Start Learning</button>
+                    </div>
+                `;
+            });
+        }
+
+        function filterCourses() {
+            let input = document.getElementById('searchInput').value.toLowerCase();
+            let cards = document.getElementsByClassName('card');
+            for (let i = 0; i < cards.length; i++) {
+                let title = cards[i].getElementsByTagName("h3")[0].innerText.toLowerCase();
+                cards[i].style.display = title.includes(input) ? "" : "none";
+            }
+        }
+
+        window.onload = loadCourses;
+    </script>
+    <script src="script.js"></script>
+</body>
+</html>
