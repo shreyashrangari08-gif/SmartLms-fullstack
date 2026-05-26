@@ -1,8 +1,17 @@
-<div class="filters">
-    <button onclick="filterPlatform('All')">All Collections (200+)</button>
-    <button onclick="filterPlatform('Google')">Google</button>
-    <button onclick="filterPlatform('Microsoft')">Microsoft</button>
-    <button onclick="filterPlatform('AWS')">AWS</button>
-    <button onclick="filterPlatform('Infosys')">Infosys</button>
-</div>
-<div class="course-grid" id="courseGrid"></div>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>SmartLMS</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="filters" id="filters">
+        <button onclick="filterPlatform('All')">All</button>
+        <button onclick="filterPlatform('Google')">Google</button>
+        <button onclick="filterPlatform('Microsoft')">Microsoft</button>
+    </div>
+    <div id="courseGrid" class="course-grid"></div>
+    <script src="script.js"></script>
+</body>
+</html>
