@@ -1,18 +1,23 @@
-// Check if user is registered
-function checkRegistration() {
-    const user = localStorage.getItem('registeredUser');
-    if (!user) {
-        alert("Pehle Register karein!");
-        return false;
-    }
-    return true;
+const courses = [
+    { title: "Google Data Analytics", desc: "Learn SQL and Tableau" },
+    { title: "Google Cybersecurity", desc: "Master Network Security" },
+    { title: "Azure Fundamentals", desc: "Microsoft Cloud basics" },
+    // Aise hi aap yahan 500 tak add kar sakte ho!
+];
+
+function loadCourses() {
+    const grid = document.querySelector('.course-grid');
+    grid.innerHTML = ""; // Purane cards hatayein
+    courses.forEach(course => {
+        grid.innerHTML += `
+            <div class="card">
+                <h3>${course.title}</h3>
+                <p>${course.desc}</p>
+                <button onclick="enroll('${course.title}')">Start Learning</button>
+            </div>
+        `;
+    });
 }
 
-// Login function (HTML mein onclick="loginUser()" lagana hoga)
-function loginUser() {
-    if (checkRegistration()) {
-        alert("Login Successful! Welcome back.");
-    } else {
-        window.location.href = "register.html"; // Redirect to register
-    }
-}
+// Page load hote hi courses dikhayein
+window.onload = loadCourses;
