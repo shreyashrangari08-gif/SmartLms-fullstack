@@ -1,7 +1,18 @@
-// script.js - Button interaction ke liye
-function enroll(courseName) {
-    alert("Great! Aapne " + courseName + " course ke liye enroll kar liya hai.");
-    console.log("User enrolled in: " + courseName);
-    
-    // Yahan hum baad mein backend se database connection karenge
+// Check if user is registered
+function checkRegistration() {
+    const user = localStorage.getItem('registeredUser');
+    if (!user) {
+        alert("Pehle Register karein!");
+        return false;
+    }
+    return true;
+}
+
+// Login function (HTML mein onclick="loginUser()" lagana hoga)
+function loginUser() {
+    if (checkRegistration()) {
+        alert("Login Successful! Welcome back.");
+    } else {
+        window.location.href = "register.html"; // Redirect to register
+    }
 }
