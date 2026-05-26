@@ -1,15 +1,10 @@
-body { font-family: 'Segoe UI', sans-serif; margin: 0; background: #f4f7f6; }
+body { font-family: sans-serif; margin: 0; background: #f4f7f6; }
 header { background: #003366; color: white; padding: 20px; display: flex; justify-content: space-between; }
 .hero { text-align: center; padding: 40px; background: #003366; color: white; }
-.hero input { padding: 12px; width: 60%; border-radius: 20px; border: none; }
-.filters { text-align: center; padding: 15px; }
-.filters button { padding: 10px 20px; margin: 5px; cursor: pointer; border-radius: 5px; border: none; background: #fff; }
+.hero input { padding: 12px; width: 70%; border-radius: 20px; border: none; }
 .course-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 20px; padding: 20px; }
 .card { background: white; border-radius: 15px; box-shadow: 0 4px 10px rgba(0,0,0,0.1); overflow: hidden; }
-.card-header { height: 80px; padding: 15px; color: white; font-weight: bold; display: flex; align-items: flex-end; }
+.card-header { padding: 15px; background: linear-gradient(135deg, #003366, #0055aa); color: white; }
 .card-content { padding: 15px; }
-
-/* Gradient Designs */
-.google { background: linear-gradient(135deg, #4285f4, #34a853); }
-.azure { background: linear-gradient(135deg, #0078d4, #00bcf2); }
-.aws { background: linear-gradient(135deg, #ff9900, #232f3e); }
+.badge { display: inline-block; background: #eee; padding: 5px 10px; border-radius: 5px; font-size: 0.8em; margin: 10px 0; }
+button { width: 100%; padding: 10px; border: none; background: #007bff; color: white; border-radius: 5px; cursor: pointer; }
