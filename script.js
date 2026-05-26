@@ -1,6 +1,7 @@
 const allCourses = [
     { id: 1, title: "Google Data Analytics", platform: "Google", videoId: "dQw4w9WgXcQ" },
-    { id: 2, title: "Azure Fundamentals", platform: "Microsoft", videoId: "jNQXAC9IVRw" }
+    { id: 2, title: "Azure Fundamentals", platform: "Microsoft", videoId: "jNQXAC9IVRw" },
+    { id: 3, title: "AWS Solutions Architect", platform: "AWS", videoId: "Q-pY7bI4J8E" }
 ];
 
 function enroll(id) {
@@ -12,13 +13,17 @@ function enroll(id) {
 function openCourse(id, videoId) {
     const modal = document.getElementById("courseModal");
     modal.style.display = "block";
+    document.getElementById("playerArea").style.display = "block";
+    document.getElementById("quizArea").style.display = "none";
+    document.getElementById("assessmentBtn").style.display = "block";
+    
     document.getElementById("playerArea").innerHTML = 
         `<iframe width="100%" height="400" src="https://www.youtube.com/embed/${videoId}" allowfullscreen></iframe>`;
 }
 
 function startAssessment() {
-    alert("Assessment Starting... Good Luck!");
     document.getElementById("playerArea").style.display = "none";
+    document.getElementById("assessmentBtn").style.display = "none";
     document.getElementById("quizArea").style.display = "block";
 }
 
